@@ -3,91 +3,91 @@ import './index.css'
 
 class RegistrationForm extends Component {
   state = {
-    fName: '',
-    lName: '',
-    fNameError: false,
-    lNameError: false,
+    firstName: '',
+    lastName: '',
+    firstNameError: false,
+    lastNameError: false,
     loginSuccessful: false,
     classNameF: 'normal',
     classNameL: 'normal',
   }
 
-  onChangeFName = event => {
-    this.setState({fName: event.target.value})
+  onChangefirstName = event => {
+    this.setState({firstName: event.target.value})
   }
 
-  onChangeLName = event => {
-    this.setState({lName: event.target.value})
+  onChangelastName = event => {
+    this.setState({lastName: event.target.value})
   }
 
-  onBlurFName = () => {
-    const {fName} = this.state
-    if (fName === '') {
-      this.setState({fNameError: true, classNameF: 'highlighted'})
+  onBlurfirstName = () => {
+    const {firstName} = this.state
+    if (firstName === '') {
+      this.setState({firstNameError: true, classNameF: 'highlighted'})
     } else {
-      this.setState({fNameError: false, classNameF: 'normal'})
+      this.setState({firstNameError: false, classNameF: 'normal'})
     }
   }
 
-  onBlurLName = () => {
-    const {lName} = this.state
-    if (lName === '') {
-      this.setState({lNameError: true, classNameL: 'highlighted'})
+  onBlurlastName = () => {
+    const {lastName} = this.state
+    if (lastName === '') {
+      this.setState({lastNameError: true, classNameL: 'highlighted'})
     } else {
-      this.setState({lNameError: false, classNameL: 'normal'})
+      this.setState({lastNameError: false, classNameL: 'normal'})
     }
   }
 
   renderFirstName = () => {
-    const {fName, fNameError, classNameF} = this.state
+    const {firstName, firstNameError, classNameF} = this.state
     return (
       <>
-        <label className="input-label" htmlFor="fname">
+        <label className="input-label" htmlFor="firstName">
           FIRST NAME
         </label>
         <input
           className={classNameF}
-          value={fName}
-          onChange={this.onChangeFName}
-          onBlur={this.onBlurFName}
+          value={firstName}
+          onChange={this.onChangefirstName}
+          onBlur={this.onBlurfirstName}
           placeholder="First Name"
         />
-        {fNameError && <p className="errorLabel">Required</p>}
+        {firstNameError && <p className="errorLabel">Required</p>}
       </>
     )
   }
 
   renderLastName = () => {
-    const {lName, lNameError, classNameL} = this.state
+    const {lastName, lastNameError, classNameL} = this.state
     return (
       <>
-        <label className="input-label" htmlFor="lname">
+        <label className="input-label" htmlFor="lastName">
           LAST NAME
         </label>
         <input
           className={classNameL}
-          value={lName}
-          onChange={this.onChangeLName}
-          onBlur={this.onBlurLName}
+          value={lastName}
+          onChange={this.onChangelastName}
+          onBlur={this.onBlurlastName}
           placeholder="Last Name"
         />
-        {lNameError && <p className="errorLabel">Required</p>}
+        {lastNameError && <p className="errorLabel">Required</p>}
       </>
     )
   }
 
   submitForm = event => {
     event.preventDefault()
-    const {fName, lName} = this.state
-    if (fName === '' && lName === '') {
-      this.onBlurFName()
-      this.onBlurLName()
-    } else if (fName === '' || lName === '') {
-      if (fName === '') {
-        this.onBlurFName()
+    const {firstName, lastName} = this.state
+    if (firstName === '' && lastName === '') {
+      this.onBlurfirstName()
+      this.onBlurlastName()
+    } else if (firstName === '' || lastName === '') {
+      if (firstName === '') {
+        this.onBlurfirstName()
       }
-      if (lName === '') {
-        this.onBlurLName()
+      if (lastName === '') {
+        this.onBlurlastName()
       }
     } else {
       this.setState({loginSuccessful: true})
@@ -97,10 +97,10 @@ class RegistrationForm extends Component {
   submitAnotherResponseForm = event => {
     event.preventDefault()
     this.setState({
-      fName: '',
-      lName: '',
-      fNameError: false,
-      lNameError: false,
+      firstName: '',
+      lastName: '',
+      firstNameError: false,
+      lastNameError: false,
       loginSuccessful: false,
     })
   }
