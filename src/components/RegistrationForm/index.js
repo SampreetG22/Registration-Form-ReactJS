@@ -46,6 +46,7 @@ class RegistrationForm extends Component {
           FIRST NAME
         </label>
         <input
+          id="firstName"
           className={classNameF}
           value={firstName}
           onChange={this.onChangefirstName}
@@ -65,6 +66,7 @@ class RegistrationForm extends Component {
           LAST NAME
         </label>
         <input
+          id="lastName"
           className={classNameL}
           value={lastName}
           onChange={this.onChangelastName}
